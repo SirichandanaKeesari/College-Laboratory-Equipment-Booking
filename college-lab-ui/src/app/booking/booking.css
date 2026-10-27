@@ -1,0 +1,389 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f5f8fc;
+  color: #172b4d;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.booking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 22px 6%;
+  background: #fff;
+  border-bottom: 1px solid #e5ebf3;
+}
+
+.back-link {
+  color: #0f766e;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.booking-header span,
+.eyebrow {
+  color: #0f766e;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.booking-content {
+  width: min(650px, 90%);
+  margin: 50px auto;
+}
+
+.booking-content h1 {
+  margin: 10px 0;
+  font-size: clamp(27px, 5vw, 36px);
+}
+
+.subtitle {
+  color: #718096;
+  line-height: 1.7;
+}
+
+.booking-card {
+  margin-top: 28px;
+  padding: 28px;
+  background: white;
+  border: 1px solid #e5ebf3;
+  border-radius: 16px;
+}
+
+.equipment-category {
+  display: inline-block;
+  padding: 7px 10px;
+  border-radius: 7px;
+  background: #e8f7f5;
+  color: #0f766e;
+  font-size: 12px;
+}
+
+.booking-card h2 {
+  margin-bottom: 10px;
+}
+
+.booking-card > p {
+  color: #718096;
+  line-height: 1.7;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 16px 0;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.detail-row span {
+  color: #718096;
+}
+
+.notice {
+  margin: 22px 0;
+  padding: 15px;
+  border-radius: 9px;
+  background: #f0f7ff;
+  color: #345577;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.secondary-button {
+  display: inline-block;
+  padding: 11px 17px;
+  border: 1px solid #d8e2ec;
+  border-radius: 8px;
+  color: #344563;
+  text-decoration: none;
+}
+
+.form-section {
+  margin-top: 26px;
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #172b4d;
+}
+
+.form-section input[type="date"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #d8e2ec;
+  border-radius: 9px;
+  background: #fff;
+  color: #172b4d;
+  font: inherit;
+}
+
+.form-section input:focus {
+  outline: 2px solid #99d9d2;
+  border-color: #0f766e;
+}
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.time-slot {
+  min-height: 46px;
+  padding: 10px;
+  border: 1px solid #d8e2ec;
+  border-radius: 9px;
+  background: #fff;
+  color: #344563;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+}
+
+.time-slot:hover:not(:disabled),
+.time-slot.selected {
+  border-color: #0f766e;
+  background: #e8f7f5;
+  color: #0f766e;
+}
+
+.time-slot:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.helper-text {
+  color: #718096;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .booking-card {
+    padding: 20px;
+  }
+
+  .time-slots {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-section {
+  margin-top: 22px;
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-section input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #d8e2ec;
+  border-radius: 9px;
+  background: #fff;
+  color: #172b4d;
+  font: inherit;
+}
+
+.form-section input:focus {
+  outline: 2px solid #99d9d2;
+  border-color: #0f766e;
+}
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.time-slot {
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid #d8e2ec;
+  border-radius: 9px;
+  background: #fff;
+  color: #344563;
+  cursor: pointer;
+}
+
+.time-slot.selected {
+  border-color: #0f766e;
+  background: #e8f7f5;
+  color: #0f766e;
+}
+
+.time-slot:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.confirm-button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  border: 0;
+  border-radius: 9px;
+  background: #0f766e;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.confirm-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.message {
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 9px;
+  line-height: 1.6;
+}
+
+.error-message {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+.success-card {
+  border-color: #b7e4d8;
+}
+
+.success-card h2 {
+  color: #0f766e;
+}
+
+.helper-text {
+  color: #718096;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .time-slots {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Clean time-slot availability */
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.time-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  min-width: 0;
+  min-height: 140px;
+  padding: 17px;
+  border: 1px solid #e1e8ed;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #172b4d;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.slot-time {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.slot-units {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px;
+  color: #718096;
+  font-size: 12px;
+}
+
+.slot-units strong {
+  color: #0f766e;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.unit-progress {
+  display: block;
+  width: 100%;
+  height: 5px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #e9eef2;
+}
+
+.unit-progress-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #0f766e;
+  transition: width 0.25s ease;
+}
+
+.unit-progress-fill.progress-empty {
+  background: #d96b6b;
+}
+
+.slot-status {
+  color: #0f766e;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.slot-status.status-full {
+  color: #b42318;
+}
+
+.time-slot:hover:not(:disabled) {
+  border-color: #0f766e;
+  background: #f7fbfa;
+}
+
+.time-slot.selected {
+  border-color: #0f766e;
+  background: #eff9f7;
+  box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.09);
+}
+
+.time-slot:disabled {
+  cursor: not-allowed;
+}
+
+.time-slot.unavailable {
+  background: #f8f9fb;
+  border-color: #e5e8ed;
+}
+
+.time-slot.unavailable .slot-time {
+  color: #8993a3;
+}
+
+@media (max-width: 480px) {
+  .time-slots {
+    grid-template-columns: 1fr;
+  }
+}

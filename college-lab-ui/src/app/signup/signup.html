@@ -1,0 +1,108 @@
+
+<div class="auth-page">
+  <div class="auth-card">
+    <a routerLink="/" class="brand">
+      <span class="brand-icon">L</span>
+      <span>
+        <strong>LabSpace</strong>
+        <small>Equipment Portal</small>
+      </span>
+    </a>
+
+    <div class="auth-heading">
+      <span class="eyebrow">STUDENT REGISTRATION</span>
+      <h1>Create your account</h1>
+      <p>Sign up to book and manage laboratory equipment.</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+      <div class="form-group">
+        <label for="studentName">Full Name</label>
+        <input
+          id="studentName"
+          type="text"
+          name="studentName"
+          [(ngModel)]="studentName"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="rollNumber">Roll Number</label>
+        <input
+          id="rollNumber"
+          type="text"
+          name="rollNumber"
+          [(ngModel)]="rollNumber"
+          placeholder="Enter your college roll number"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">College Email</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Enter your email address"
+          autocomplete="email"
+          required
+          email
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="At least 8 characters"
+          autocomplete="new-password"
+          minlength="8"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          id="confirmPassword"
+          type="password"
+          name="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          placeholder="Re-enter your password"
+          autocomplete="new-password"
+          required
+        />
+      </div>
+
+      <p class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </p>
+
+      <p class="success-message" *ngIf="successMessage">
+        {{ successMessage }}
+      </p>
+
+      <button
+        type="submit"
+        class="submit-button"
+        [disabled]="isLoading || !signupForm.valid"
+      >
+        {{ isLoading ? 'Creating account...' : 'Create Account' }}
+      </button>
+    </form>
+
+    <p class="auth-footer">
+      Already have an account?
+      <a routerLink="/login">Log in</a>
+    </p>
+  </div>
+</div>
+

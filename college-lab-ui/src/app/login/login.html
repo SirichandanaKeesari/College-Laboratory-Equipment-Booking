@@ -1,0 +1,64 @@
+
+<div class="auth-page">
+  <div class="auth-card">
+    <a routerLink="/" class="brand">
+      <span class="brand-icon">L</span>
+      <span>
+        <strong>LabSpace</strong>
+        <small>Equipment Portal</small>
+      </span>
+    </a>
+
+    <div class="auth-heading">
+      <span class="eyebrow">STUDENT PORTAL</span>
+      <h1>Welcome back!</h1>
+      <p>Log in to manage your laboratory equipment bookings.</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="identifier">Email or Roll Number</label>
+        <input
+          id="identifier"
+          type="text"
+          name="identifier"
+          [(ngModel)]="identifier"
+          placeholder="Enter your email or roll number"
+          autocomplete="username"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        />
+      </div>
+
+      <p class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </p>
+
+      <button
+        type="submit"
+        class="submit-button"
+        [disabled]="isLoading || !loginForm.valid"
+      >
+        {{ isLoading ? 'Logging in...' : 'Log In' }}
+      </button>
+    </form>
+
+    <p class="auth-footer">
+      Don't have an account?
+      <a routerLink="/signup">Create an account</a>
+    </p>
+  </div>
+</div>
+

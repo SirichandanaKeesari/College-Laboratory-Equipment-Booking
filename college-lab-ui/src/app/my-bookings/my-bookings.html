@@ -1,0 +1,84 @@
+
+<div class="bookings-page">
+  <div class="page-header">
+    <div>
+      <p class="eyebrow">EQUIPMENT RESERVATION</p>
+      <h1>My Bookings</h1>
+      <p class="subtitle">View and manage your laboratory equipment reservations.</p>
+    </div>
+
+    <a routerLink="/" class="back-button">Back to Dashboard</a>
+  </div>
+  <div *ngIf="successMessage" class="message-card">
+  {{ successMessage }}
+</div>
+
+  <div *ngIf="loading" class="message-card">
+    Loading your bookings...
+  </div>
+
+  <div *ngIf="!loading && errorMessage" class="message-card error">
+    {{ errorMessage }}
+    <button (click)="loadBookings()">Try Again</button>
+  </div>
+
+  <div *ngIf="!loading && !errorMessage && bookings.length === 0" class="message-card empty">
+    <div class="empty-icon">📋</div>
+    <h2>No bookings yet</h2>
+    <p>Your equipment reservations will appear here.</p>
+    <a routerLink="/" class="primary-button">Explore Equipment</a>
+  </div>
+
+  <div *ngIf="!loading && !errorMessage && bookings.length > 0" class="booking-list">
+    <article class="booking-card" *ngFor="let booking of bookings">
+      <div class="card-top">
+        <div>
+          <span class="booking-label">EQUIPMENT BOOKING</span>
+          <h2>{{ booking.equipmentName }}</h2>
+          <p class="booking-id">Booking ID: {{ booking.id }}</p>
+        </div>
+
+        <span class="status" [class.cancelled]="booking.status === 'CANCELLED'">
+          {{ booking.status }}
+        </span>
+      </div>
+
+      <div class="details-grid">
+        <div class="detail">
+          <span>Student Name</span>
+          <strong>{{ booking.studentName }}</strong>
+        </div>
+
+        <div class="detail">
+          <span>Roll Number</span>
+          <strong>{{ booking.rollNumber }}</strong>
+        </div>
+
+        <div class="detail">
+          <span>Booking Date</span>
+          <strong>{{ booking.date }}</strong>
+        </div>
+
+        <div class="detail">
+          <span>Time Slot</span>
+          <strong>{{ booking.timeSlot }}</strong>
+        </div>
+
+        <div class="detail">
+          <span>Email</span>
+          <strong>{{ booking.email }}</strong>
+        </div>
+      </div>
+      <div class="booking-actions" *ngIf="booking.status !== 'CANCELLED'">
+  <button
+  type="button"
+  class="cancel-button"
+  [disabled]="cancellingId === booking.id"
+  (click)="cancelBooking(booking.id)"
+>
+  {{ cancellingId === booking.id ? 'Cancelling...' : 'Cancel Booking' }}
+</button>
+</div>
+    </article>
+  </div>
+</div>

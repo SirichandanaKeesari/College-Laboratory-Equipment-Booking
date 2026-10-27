@@ -1,0 +1,149 @@
+
+{
+  "equipment": [
+    {
+      "id": "EQ001",
+      "name": "Desktop Computer",
+      "category": "Workstations & Systems",
+      "department": "Computer Science",
+      "description": "Desktop workstation for programming, practical sessions and software development.",
+      "available": 12,
+      "total": 15
+    },
+    {
+      "id": "EQ002",
+      "name": "Laptop",
+      "category": "Workstations & Systems",
+      "department": "Artificial Intelligence",
+      "description": "Portable computer for AI development, coding and academic projects.",
+      "available": 8,
+      "total": 10
+    },
+    {
+      "id": "EQ003",
+      "name": "Raspberry Pi Kit",
+      "category": "Embedded Systems",
+      "department": "Computer Science",
+      "description": "Compact computing kit for embedded systems and IoT experiments.",
+      "available": 6,
+      "total": 8
+    },
+    {
+      "id": "EQ004",
+      "name": "Arduino Starter Kit",
+      "category": "Embedded Systems",
+      "department": "Electronics",
+      "description": "Microcontroller kit for electronics, automation and sensor projects.",
+      "available": 10,
+      "total": 12
+    },
+    {
+      "id": "EQ005",
+      "name": "GPU Workstation",
+      "category": "AI Computing",
+      "department": "Artificial Intelligence",
+      "description": "High-performance workstation for machine learning and deep learning workloads.",
+      "available": 3,
+      "total": 5
+    },
+    {
+      "id": "EQ006",
+      "name": "3D Printer",
+      "category": "Fabrication",
+      "department": "Mechanical Engineering",
+      "description": "3D printer for prototyping, model fabrication and design projects.",
+      "available": 2,
+      "total": 3
+    },
+    {
+      "id": "EQ007",
+      "name": "Digital Multimeter",
+      "category": "Testing & Measurement",
+      "department": "Electrical Engineering",
+      "description": "Instrument for measuring voltage, current and electrical resistance.",
+      "available": 9,
+      "total": 12
+    },
+    {
+      "id": "EQ008",
+      "name": "Oscilloscope",
+      "category": "Testing & Measurement",
+      "department": "Electronics",
+      "description": "Equipment for observing and analysing electrical signal waveforms.",
+      "available": 4,
+      "total": 6
+    },
+    {
+      "id": "EQ009",
+      "name": "Soldering Station",
+      "category": "Electronics Tools",
+      "department": "Electronics",
+      "description": "Temperature-controlled soldering station for circuit assembly and repair.",
+      "available": 5,
+      "total": 7
+    },
+    {
+      "id": "EQ010",
+      "name": "Robotics Kit",
+      "category": "Robotics",
+      "department": "Artificial Intelligence",
+      "description": "Robotics kit for automation, sensors and intelligent control projects.",
+      "available": 4,
+      "total": 6
+    },
+    {
+      "id": "EQ011",
+      "name": "Digital Storage Oscilloscope",
+      "category": "Testing & Measurement",
+      "department": "Electrical Engineering",
+      "description": "Digital instrument for analysing electronic circuits and signal behaviour.",
+      "available": 3,
+      "total": 4
+    },
+    {
+      "id": "EQ012",
+      "name": "Mechanical Tool Kit",
+      "category": "Workshop Tools",
+      "department": "Mechanical Engineering",
+      "description": "General-purpose tool kit for mechanical workshop practicals.",
+      "available": 7,
+      "total": 10
+    },
+    {
+      "id": "EQ013",
+      "name": "3D Scanner",
+      "category": "Fabrication",
+      "department": "Mechanical Engineering",
+      "description": "Scanner for capturing object geometry for modelling and prototyping.",
+      "available": 2,
+      "total": 3
+    },
+    {
+      "id": "EQ014",
+      "name": "IoT Sensor Kit",
+      "category": "Sensors & IoT",
+      "department": "Computer Science",
+      "description": "Sensor kit for connected-device experiments and data collection.",
+      "available": 8,
+      "total": 10
+    },
+    {
+      "id": "EQ015",
+      "name": "FPGA Development Board",
+      "category": "Digital Systems",
+      "department": "Electronics",
+      "description": "Development board for digital logic and hardware design experiments.",
+      "available": 3,
+      "total": 5
+    },
+    {
+      "id": "EQ016",
+      "name": "Thermal Camera",
+      "category": "Testing & Measurement",
+      "department": "Electrical Engineering",
+      "description": "Thermal imaging equipment for inspecting heat distribution and components.",
+      "available": 2,
+      "total": 3
+    }
+  ]
+}

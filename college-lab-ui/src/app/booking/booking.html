@@ -1,0 +1,175 @@
+
+<div class="booking-page">
+  <header class="booking-header">
+    <a routerLink="/" class="back-link">← Back to equipment</a>
+    <span>COLLEGE LABORATORY EQUIPMENT BOOKING</span>
+  </header>
+
+  <main class="booking-content">
+    <p class="eyebrow">RESERVATION</p>
+    <h1>Confirm your equipment</h1>
+    <p class="subtitle">
+      Enter your details and select your preferred date and time.
+    </p>
+
+    <div *ngIf="loading" class="booking-card">
+      Loading equipment details...
+    </div>
+
+    <div *ngIf="errorMessage" class="message error-message">
+      {{ errorMessage }}
+    </div>
+
+    <section *ngIf="equipment && !loading && !successMessage" class="booking-card">
+      <span class="equipment-category">{{ equipment.category }}</span>
+      <h2>{{ equipment.name }}</h2>
+      <p>{{ equipment.description }}</p>
+
+      <div class="detail-row">
+        <span>Department</span>
+        <strong>{{ equipment.department }}</strong>
+      </div>
+
+      <form #bookingForm="ngForm" (ngSubmit)="confirmBooking()">
+        <div class="form-section">
+          <label for="studentName">Student name</label>
+          <input
+            id="studentName"
+            type="text"
+            name="studentName"
+            [(ngModel)]="studentName"
+            required
+            maxlength="100"
+            autocomplete="name"
+          />
+        </div>
+
+        <div class="form-section">
+          <label for="rollNumber">Roll number</label>
+          <input
+            id="rollNumber"
+            type="text"
+            name="rollNumber"
+            [(ngModel)]="rollNumber"
+            required
+            maxlength="30"
+          />
+        </div>
+
+        <div class="form-section">
+          <label for="email">College email</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            email
+            maxlength="254"
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="form-section">
+          <label for="bookingDate">Select booking date</label>
+          <input
+            id="bookingDate"
+            type="date"
+            name="bookingDate"
+            [min]="minDate"
+            [(ngModel)]="selectedDate"
+            (ngModelChange)="onDateChange()"
+            required
+          />
+        </div>
+
+        <div class="form-section">
+          <label>Select a time slot</label>
+
+          <p *ngIf="!selectedDate" class="helper-text">
+            Choose a date first.
+          </p>
+
+          <p *ngIf="availabilityLoading" class="helper-text">
+            Checking available slots...
+          </p>
+
+          <p
+            *ngIf="selectedDate && !availabilityLoading && !errorMessage && slotAvailability.length === 0"
+            class="helper-text"
+          >
+            No availability information found for this date.
+          </p>
+
+          
+<div class="time-slots">
+  <button
+    *ngFor="let slot of timeSlots"
+    type="button"
+    class="time-slot"
+    [class.selected]="selectedSlot === slot"
+    [class.unavailable]="selectedDate && !availabilityLoading && !isSlotAvailable(slot)"
+    [disabled]="!selectedDate || availabilityLoading || submitting || !isSlotAvailable(slot)"
+    (click)="selectSlot(slot)"
+  >
+    <span class="slot-time">{{ slot }}</span>
+
+    <span class="slot-units" *ngIf="selectedDate && !availabilityLoading">
+      <strong>{{ getAvailableUnits(slot) }}</strong>
+      <span>of {{ equipment?.total }} units available</span>
+    </span>
+
+    <span class="slot-units" *ngIf="!selectedDate || availabilityLoading">
+      {{ !selectedDate ? 'Choose a date first' : 'Checking availability...' }}
+    </span>
+
+    <span class="unit-progress">
+      <span
+        class="unit-progress-fill"
+        [style.width]="(equipment?.total ? getAvailableUnits(slot) / equipment.total * 100 : 0) + '%'"
+        [class.progress-empty]="!isSlotAvailable(slot)"
+      ></span>
+    </span>
+
+    <span
+      class="slot-status"
+      [class.status-full]="selectedDate && !availabilityLoading && !isSlotAvailable(slot)"
+    >
+      {{ !selectedDate ? 'Not checked' :
+         availabilityLoading ? 'Checking...' :
+         isSlotAvailable(slot) ? 'Available' : 'Fully booked' }}
+    </span>
+  </button>
+</div>
+
+        </div>
+
+        <div *ngIf="selectedDate && selectedSlot" class="notice">
+          <strong>Booking summary</strong>
+          <p>Date: {{ selectedDate }}</p>
+          <p>Time: {{ selectedSlot }}</p>
+          <p>Available units: {{ getAvailableUnits(selectedSlot) }}</p>
+        </div>
+
+        <button
+          class="confirm-button"
+          type="submit"
+          [disabled]="!bookingForm.valid || !selectedSlot || submitting || availabilityLoading || !isSlotAvailable(selectedSlot)"
+        >
+          {{ submitting ? 'Submitting...' : 'Confirm Booking' }}
+        </button>
+      </form>
+    </section>
+
+    <section *ngIf="successMessage" class="booking-card success-card">
+      <h2>Booking confirmed!</h2>
+      <p>{{ successMessage }}</p>
+      <p *ngIf="bookingId"><strong>Booking ID:</strong> {{ bookingId }}</p>
+      <p><strong>Equipment:</strong> {{ equipment?.name }}</p>
+      <p><strong>Date:</strong> {{ selectedDate }}</p>
+      <p><strong>Time:</strong> {{ selectedSlot }}</p>
+      <p><strong>Student:</strong> {{ studentName }}</p>
+      <a routerLink="/" class="secondary-button">Back to equipment</a>
+    </section>
+  </main>
+</div>

@@ -1,0 +1,20 @@
+{
+  "students": [
+    {
+      "id": "2ff13d8e-1f22-4bb3-9d8c-ad105dfb0703",
+      "studentName": "Test Student",
+      "rollNumber": "TEST001",
+      "email": "teststudent@example.com",
+      "passwordHash": "$2b$12$5UBU5PzrYLBleA32JBvXKuoN/gu3d.tC25Ci1CJY6UxlfshL4evWO",
+      "createdAt": "2026-10-27T09:41:41.892Z"
+    },
+    {
+      "id": "456561ab-7419-4f74-b10b-215779abf5ab",
+      "studentName": "Sirichandana",
+      "rollNumber": "24eg106d08",
+      "email": "24eg106d08@anurag.edu.in",
+      "passwordHash": "$2b$12$1FW9/AHY9p7EMMRgXzv5eO7xVwOKh.exdtcQVg0REGfEMqnRVksHK",
+      "createdAt": "2026-10-27T10:19:38.911Z"
+    }
+  ]
+}

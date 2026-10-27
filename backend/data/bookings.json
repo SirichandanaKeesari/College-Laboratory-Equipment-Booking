@@ -1,0 +1,15 @@
+[
+  {
+    "id": "LS-EQ016-20261031-155559-001",
+    "studentId": "456561ab-7419-4f74-b10b-215779abf5ab",
+    "equipmentId": "EQ016",
+    "equipmentName": "Thermal Camera",
+    "studentName": "Sirichandana",
+    "rollNumber": "24eg106d08",
+    "email": "24eg106d08@anurag.edu.in",
+    "date": "2026-10-31",
+    "timeSlot": "04:00 PM - 05:00 PM",
+    "status": "CANCELLED",
+    "createdAt": "2026-10-27T10:25:59.946Z"
+  }
+]

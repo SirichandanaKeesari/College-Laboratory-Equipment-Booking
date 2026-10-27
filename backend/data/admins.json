@@ -1,0 +1,10 @@
+{
+  "admins": [
+    {
+      "id": 1,
+      "name": "Lab Administrator",
+      "email": "admin@college.edu",
+      "password": "Admin@123"
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+
+<div class="dashboard">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-logo">L</div>
+      <div>
+        <h2>LabSpace</h2>
+        <p>College Laboratory Equipment Booking</p>
+      </div>
+    </div>
+
+    
+<div class="user-area">
+  <a routerLink="/my-bookings" class="my-bookings-link">
+    My Bookings
+  </a>
+
+  <a routerLink="/login" class="auth-nav-link login-link">
+    Login
+  </a>
+
+  <a routerLink="/signup" class="auth-nav-link signup-link">
+    Sign Up
+  </a>
+
+  <div class="avatar">S</div>
+  <div>
+    <strong>{{ studentName || 'Student Portal' }}</strong>
+  </div>
+</div>
+
+  </header>
+
+  <main class="main-content">
+    <section class="welcome">
+      <div>
+        <span class="eyebrow">STUDENT WORKSPACE</span>
+        <h1>Welcome back{{ studentName ? ', ' + studentName : '!' }}</h1><br>
+        <h1>Find your next <span>lab essential.</span></h1>
+        <p>Explore laboratory equipment and reserve what you need for your academic projects.</p>
+      </div>
+      <div class="welcome-icon">⚗️</div>
+    </section>
+
+    
+<section class="stats">
+  <div class="stat-card">
+    <div class="stat-icon blue">▣</div>
+    <div>
+      <p>Total Equipment</p>
+      <h2>{{ equipment.length }}</h2>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-icon teal">✓</div>
+    <div>
+      <p>Available Units</p>
+      <h2>{{ availableUnits }}</h2>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-icon purple">⌘</div>
+    <div>
+      <p>Departments</p>
+      <h2>{{ departments.length }}</h2>
+    </div>
+  </div>
+</section>
+
+
+    <section class="equipment-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">LABORATORY INVENTORY</span>
+          <h2>Explore Equipment</h2>
+          <p>Choose equipment for your next practical session.</p>
+        </div>
+      </div>
+
+      
+<div class="filters">
+  <input
+    type="text"
+    placeholder="Search equipment..."
+    aria-label="Search equipment"
+    [(ngModel)]="searchText"
+  />
+
+  <select
+    aria-label="Filter by department"
+    [(ngModel)]="selectedDepartment"
+  >
+    <option value="">All Departments</option>
+    <option *ngFor="let department of departments" [value]="department">
+      {{ department }}
+    </option>
+  </select>
+</div>
+
+
+      
+<div *ngIf="loading" class="empty-state">
+  <h3>Loading equipment...</h3>
+</div>
+
+<div *ngIf="errorMessage" class="empty-state">
+  <h3>{{ errorMessage }}</h3>
+  <button type="button" (click)="loadEquipment()">Try Again</button>
+</div>
+
+<div
+  *ngIf="!loading && !errorMessage && filteredEquipment.length === 0"
+  class="empty-state"
+>
+  <h3>No equipment found</h3>
+  <p>Equipment will appear here once it has been added to the inventory.</p>
+</div>
+
+<div class="equipment-grid" *ngIf="!loading && !errorMessage">
+  <article class="equipment-card" *ngFor="let item of filteredEquipment">
+    <div class="equipment-card-top">
+      <span class="equipment-category">{{ item.category }}</span>
+      <span class="availability">
+        {{ item.total ?? 0 }} available
+      </span>
+    </div>
+
+    <h3>{{ item.name }}</h3>
+    <p>{{ item.description || 'Laboratory equipment available for student use.' }}</p>
+    <div class="equipment-footer">
+      <span>{{ item.department }}</span>
+      <button
+  type="button"
+  [disabled]="(item.available ?? 0) < 1"
+  [routerLink]="['/booking', item.id]"
+>
+  Book Now
+</button>
+    </div>
+  </article>
+</div>
+
+    </section>
+
+    <footer>
+      <span>LabSpace · College Laboratory Equipment Booking System</span>
+      <span>Built for student success</span>
+    </footer>
+  </main>
+</div>
